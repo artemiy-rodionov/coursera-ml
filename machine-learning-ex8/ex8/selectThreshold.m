@@ -19,9 +19,14 @@ for epsilon = min(pval):stepsize:max(pval)
 	%               end of the loop will compare the F1 score for this
 	%               choice of epsilon and set it to be the best epsilon if
 	%               it is better than the current choice of epsilon.
+	cvPredictions = pval < epsilon;
+	tp = sum((cvPredictions == 1) & (yval == 1));
+	fp = sum((cvPredictions == 1) & (yval == 0));
+	fn = sum((cvPredictions == 0) & (yval == 1));
 
-
-
+	prec = tp / (tp + fp);
+	rec = tp / (tp + fn);
+	F1 = (2 * prec * rec) / (prec + rec);
 
 
 

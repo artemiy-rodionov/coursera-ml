@@ -56,7 +56,7 @@ fprintf('Visualizing Gaussian fit.\n\n');
 %  Estimate my and sigma2
 [mu sigma2] = estimateGaussian(X);
 
-%  Returns the density of the multivariate normal at each data point (row) 
+%  Returns the density of the multivariate normal at each data point (row)
 %  of X
 p = multivariateGaussian(X, mu, sigma2);
 
@@ -71,7 +71,7 @@ pause;
 %% ================== Part 3: Find Outliers ===================
 %  Now you will find a good epsilon threshold using a cross-validation set
 %  probabilities given the estimated Gaussian distribution
-% 
+%
 
 pval = multivariateGaussian(Xval, mu, sigma2);
 
